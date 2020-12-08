@@ -58,7 +58,7 @@ var subscription = web3.eth.subscribe('pendingTransactions', function (error, re
 /*
 FUNCTION
 - executes Smart Constract's getBet function
-- sends the receipt to the next node
+- then sends the receipt to the next node
 */
 function Pay(fulfilled) {
 
