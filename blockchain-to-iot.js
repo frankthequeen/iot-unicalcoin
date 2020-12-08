@@ -35,20 +35,20 @@ var subscription = web3.eth.subscribe('pendingTransactions', function (error, re
 	web3.eth.getTransaction(transaction)
 	.then(function (fulfilled) {
 
-        if (fulfilled.to == myAddress) {
-            if (fulfilled.from == addressOwner) {
-                var temp = fulfilled.value;
-                var msg2 = { payload: 1 };
-                var value = temp / 100000000000000;
-                msg.delay = value;
-                node.send([[msg2], [msg]]);
-            }
-            else {
-                fulfilled_array.push(fulfilled);
-            }
-        }
+		if (fulfilled.to == myAddress) {
+			if (fulfilled.from == addressOwner) {
+				var temp = fulfilled.value;
+				var msg2 = { payload: 1 };
+				var value = temp / 100000000000000;
+				msg.delay = value;
+				node.send([[msg2], [msg]]);
+			}
+			else {
+				fulfilled_array.push(fulfilled);
+			}
+		}
 		
-    })
+	})
 	.catch(function (error) {
 		console.log(error.message);
 	}); 
@@ -62,10 +62,10 @@ FUNCTION
 */
 function Pay(fulfilled) {
 
-    web3.eth.getTransactionCount(myAddress)
+	web3.eth.getTransactionCount(myAddress)
 	.then(function (n) {
 		
-        contract.methods.getBet(fulfilled.from, myAddress)
+		contract.methods.getBet(fulfilled.from, myAddress)
 		.send({
 			from: web3.eth.defaultAccount,
 			gas: '3000000',
@@ -83,7 +83,7 @@ function Pay(fulfilled) {
 			console.log(error.message);
 		});
 		
-    })
+	})
 	
 };
 
@@ -93,7 +93,7 @@ CRON
 - when not void executes Pay function
 */
 setInterval(function () {
-    if (fulfilled_array.length !== 0) {
-        Pay(fulfilled_array.shift())
-    }
+	if (fulfilled_array.length !== 0) {
+		Pay(fulfilled_array.shift())
+	}
 }, 120000);
