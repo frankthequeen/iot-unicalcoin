@@ -3,7 +3,7 @@
 **IoT&B** is a R&D project made by *BlockchainLab Srl* and the *Blockchain research group* at *Department of Mathematics and Computer Science of the University of Calabria*. 
 
 * Details about the IoT&B project are available at: https://www.iot-blockchain.it/  
-* Details about the IoT&Unicalcoin prototype will be published soon.  
+* Details about the IoT&Unicalcoin prototype are published at: https://doi.org/10.1063/5.0109302  
 
 ---
 
